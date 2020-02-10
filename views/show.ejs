@@ -1,0 +1,63 @@
+<% include /workspace/Web-D-Bootcamp/YelpCamp/v1/partials/header.ejs %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<p class="lead">
+				YelpCamp
+			</p>
+			<div class="list-group">
+				<li class="list-group-item" >Info 1</li>
+				<li class="list-group-item">Info 2</li>
+				<li class="list-group-item">Info 3</li>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<div class="thumbnail">
+				<image class="image-responsive" src="<%=desc.image%>"></image>
+				<div class="caption-full">
+					<h4 class="pull-right">
+						$10.00/night
+					</h4>
+					<h4>
+						<a><%=desc.name%></a>
+					</h4>
+					<p>
+							<%=desc.description%>
+					</p>
+					<p>
+						<em>This Campground is registered by <strong><%=desc.author.username%></strong></em>
+					</p>
+					<%if(currentUser && desc.author.id.equals(currentUser._id)){%>
+					<p>
+						<a href="/campgrounds/<%=desc._id%>/edit" class="btn btn-primary">EDIT</a>
+				    </p>
+					<form action="/campgrounds/<%=desc._id%>?_method=DELETE" method="POST">
+						<button class="btn btn-primary btn-danger">
+							DELETE
+						</button>
+					</form>
+					<%}%>
+				</div>
+			</div>
+			<div class="well">
+				<div class="text-right">
+					<a class="btn btn-success" href="/campgrounds/<%=desc._id%>/comment/new">ADD COMMENT</a>
+				</div>
+				<hr>
+				<% desc.comment.forEach(function(comm){%>
+				<div class="row">
+					<div class="col-md-12">
+						<strong><%=comm.author.username%></strong>
+						<span class="pull-right">10 days ago</span>
+						<p>
+							<%=comm.text%>
+						</p>
+					</div>
+				</div>
+				<%})%>
+			</div>
+		</div>
+	</div>
+</div>
+	
+<% include /workspace/Web-D-Bootcamp/YelpCamp/v1/partials/footer.ejs %>

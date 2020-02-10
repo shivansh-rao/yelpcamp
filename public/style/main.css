@@ -1,0 +1,17 @@
+.thumbnail img {
+	width: 100%;
+}
+body{
+	background-color: lightblue;
+}
+
+h1{
+	color: white;
+}
+
+.thumbnail .caption-full{
+	padding: 9px;
+}
+#delete{
+	display:inline;
+};
