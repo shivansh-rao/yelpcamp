@@ -14,14 +14,14 @@ var comment=require("./model/comment.js");
 var session=require("express-session");
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://shivansh:shivansh@cluster0-fpqlm.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
+//const client = new MongoClient(uri, { useUnifiedTopology: true });
 app.use(methodOverride("_method"));
 
 app.set("view engine", "ejs");
 
 app.use(bodyparser.urlencoded({extended: true}));
 //mongoose.connect("mongodb://localhost:27017/yelp_camp", {useUnifiedTopology: true});
-//mongoose.connect("mongodb+srv://shivansh:shivansh@cluster0-fpqlm.mongodb.net/test?retryWrites=true&w=majority", {useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://shivansh:shivansh@cluster0-fpqlm.mongodb.net/test?retryWrites=true&w=majority", {useUnifiedTopology: true});
 
 app.use(express.static("public"));
 //seedDB();
