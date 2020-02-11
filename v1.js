@@ -18,10 +18,10 @@ const uri = "mongodb+srv://shivansh:shivansh@cluster0-fpqlm.mongodb.net/test?ret
 app.use(methodOverride("_method"));
 
 app.set("view engine", "ejs");
-
+console.log(process.env.DBURL);
 app.use(bodyparser.urlencoded({extended: true}));
 //mongoose.connect("mongodb://localhost:27017/yelp_camp", {useUnifiedTopology: true});
-mongoose.connect("mongodb+srv://shivansh:shivansh@cluster0-fpqlm.mongodb.net/test?retryWrites=true&w=majority", {useUnifiedTopology: true});
+mongoose.connect(process.env.DBURL);//, {useUnifiedTopology: true});
 
 app.use(express.static("public"));
 //seedDB();
