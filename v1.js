@@ -234,6 +234,6 @@ function isAllowed(req,res,next){
 		res.redirect("back");
 }
 
-app.listen((process.env.PORT || 3000),() =>{
-	console.log("The Yelpcamp app has started");
-});
+// app.listen((process.env.PORT || 3000),() =>{
+// 	console.log("The Yelpcamp app has started");
+// });
