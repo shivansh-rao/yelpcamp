@@ -13,7 +13,7 @@ var seedDB=require("./model/seed.js");
 var comment=require("./model/comment.js");
 var session=require("express-session");
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://shivansh:shivansh@cluster0-fpqlm.mongodb.net/test?retryWrites=true&w=majority";
+const uri = "mongodb+srv://username:password@cluster0-fpqlm.mongodb.net/test?retryWrites=true&w=majority";
 //const client = new MongoClient(uri, { useUnifiedTopology: true });
 app.use(methodOverride("_method"));
 
